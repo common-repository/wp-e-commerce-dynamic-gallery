@@ -1,0 +1,265 @@
+*** WP e-Commerce Dynamic Gallery Changelog ***
+
+= 1.3.0 - 2017/06/15 =
+* Tweak - Tested for compatibility with WordPress major version 4.8.0
+* Tweak - Tested for compatibility with WPEC major version 3.12.2
+* Tweak - WordPress Translation activation. Add text domain declaration in file header
+* Tweak - Change global $$variable to global ${$variable} for compatibility with PHP 7.0
+* Tweak - Update a3 Revolution to a3rev Software on plugins description
+* Tweak - Added Settings link to plugins description on plugins menu
+* Tweak - Updated plugins Description on wordpress.org with End of Development and Maintenance notice
+* Tweak - Removed tracking code from plugin
+* Tweak - Removed auto upgrading code from plugin
+* Tweak - Remove confirm license key form at first activate the plugin
+* Blog Notice- Read full details about the future of this plugin here https://a3rev.com/end-of-wp-e-commerce-development
+
+= 1.2.8 - 2016/04/22 =
+* Tweak - Tested for full compatibility with WP-eCommerce Version 3.11.2
+* Tweak - Tested for full compatibility with WordPress major version 4.5.0
+
+= 1.2.7 - 2015/09/08 =
+* Tweak - Tested for full compatibility with WP-eCommerce Version 3.10.1
+* Fix - Delete check new version transient when transient_timeout is deleted by WordPress 4.3 get_transients function so call to a3api for new version still works.
+* Fix - Change timeout of call to a3API for updates from 45 seconds to 8 seconds to resolve the server PHP timeout 30 seconds default. Server timeout before call finish was causing the 24 hour cron call not to be set and causing the dashboard to load slowly if a3API is not reachable.
+* Fix - Set 24 hours cron before call to a3API so that if have fail to connection then it will call in 24 hours on Cron instead of continue call each time Dashboard is loaded
+
+= 1.2.6 - 2015/08/24 =
+* Tweak - include new CSSMin lib from https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port into plugin framework instead of old CSSMin lib from http://code.google.com/p/cssmin/ , to avoid conflict with plugins or themes that have CSSMin lib
+* Tweak - make __construct() function for 'Compile_Less_Sass' class instead of using a method with the same name as the class for compatibility on WP 4.3 and is deprecated on PHP4
+* Tweak - change class name from 'lessc' to 'a3_lessc' so that it does not conflict with plugins or themes that have another Lessc lib
+* Tweak - Added new options into Settings -> Permalinks page on Dashboard
+* Tweak - Tested for full compatibility with WordPress major version 4.3.0
+* Tweak - Tested for full compatibility with WP-eCommerce major version 3.9.5
+* Fix - Check 'request_filesystem_credentials' function, if it does not exists then require the core php lib file from WP where it is defined
+
+= 1.2.5 - 2015/06/29 =
+* Tweak - Automatic delete the house keeping option of Lite version when upgrading from Lite to Pro version. Prevents data from being deleted on upgrade if the Lite Version Clean Up On Deletion option is was left switched ON before deactivating it to install the Pro version.
+* Tweak - Tested for full compatibility with WP e-Commerce version 3.9.4
+* Fix - Added fallback cron job schedule to fix License Key deactivation bug that occurs when call to server returns null for server name when checking key status for auto Maintenance and Feature upgrades
+
+= 1.2.4 - 2015/06/03 =
+* Tweak - Tested for full compatibility with WordPress Version 4.2.2
+* Tweak - Security Hardening. Removed all php file_put_contents functions in the plugin framework and replace with the WP_Filesystem API
+* Tweak - Security Hardening. Removed all php file_get_contents functions in the plugin framework and replace with the WP_Filesystem API
+* Fix - Update dynamic stylesheet url in uploads folder to the format //domain.com/ so it's always is correct when loaded as http or https
+
+= 1.2.3 - 2015/05/05 =
+* Tweak - Tested for full compatibility with WordPress Version 4.2.1
+* Tweak - Define image Alt Text for Alt Attribute for serach engine optomization
+* Tweak - Redefine caption text as new attribute data-caption for use as image captions in gallery
+* Fix - Removed check_ajax_referer() call on frontend for compatibility with PHP caching plugins. Was returning -1 to js success call-back.
+
+= 1.2.2 - 2015/04/24 =
+* Tweak - Tested and Tweaked for full compatibility with WordPress Version 4.2.0
+* Tweak - Tested and Tweaked for full compatibility with WP e-Commerce Version 3.9.3
+* Tweak - Changed WP_CONTENT_DIR to WP_PLUGIN_DIR. When admin sets a custom WordPress file structure then it can get the correct path of plugin
+* Tweak - Update style of plugin framework. Removed the [data-icon] selector to prevent conflict with other plugins that have font awesome icons
+* Fix - Show the new plugin version on the Core Update page. Feature stopped working with WordPress version 4.1
+* Fix - Sass compile path not saving on windows xampp.
+
+= 1.2.1 - 2014/11/13 =
+* Fix - a3rev License code now recognises domain with and without the www. We believe that this will solve Licenses auto deactivating on some sites.
+
+= 1.2.0 - 2014/09/17 =
+* Feature - Converted all front end CSS #dynamic {stylesheets} to Sass #dynamic {stylesheets} for faster loading.
+* Feature - Convert all back end CSS to Sass.
+* Tweak - Remove inline style is loaded for each gallery and gallery variation to reduce the query to database
+* Tweak - Added customized_style.php file for Sass
+
+= 1.1.9.7 - 2014/09/09 =
+* Tweak - Upgrade fancybox script lib to include fancybox.js file when SCRIPT_DEBUG = true
+* Tweak - Updated google font face in plugin framework.
+* Tweak - Tested 100% compatible with WP e-Commerce 3.8.14.3
+* Tweak - Tested 100% compatible with WordPress Version 4.0
+
+= 1.1.9.6 - 2014/06/24 =
+* Feature - Added option to Hide or show the default WPEC Image Gallery Meta box on product edit pages.
+* Feature - If default WPEC Product Gallery is deactivated - Turn OFF the Dynamic Gallery on the product, the WPEC default gallery shows again.
+* Tweak - Improved UI - Turn off the Dynamic gallery from the Meta box and the box closes. Turn it on and it opens.
+* Tweak - Added support for placeholder feature for input, email , password , text area types
+* Tweak - Updated chosen js script to latest version 1.0.1 on the a3rev Plugin Framework
+* Tweak - Convert Lifetime License to single site purchase with add sites at discount feature.
+* Fixed - Fixed the Warning - "Creating default object from empty value in" on Dynamic Gallery Preview popup.
+* Fixed - Solved the conflict with WP Email Template for the warning "WP Email Template: wp_mail has been declared by another process or plugin, so you won't be able to use another Email Deliver Provider until the problem is solved." on Dynamic Gallery Style tab.
+
+= 1.1.9.5 - 2014/05/24 =
+* Tweak - Chnaged add_filter( 'gettext', array( $this, 'change_button_text' ), null, 2 ); to add_filter( 'gettext', array( $this, 'change_button_text' ), null, 3 );
+* Tweak - Update change_button_text() function from ( $original == 'Insert into Post' ) to ( is_admin() && $original === 'Insert into Post' )
+* Tweak - Checked and updated for full compatibility with WP e-Commerce Version 3.8.14.1 and WordPress version 3.9.1
+* Fix - Code tweaks to fix a3 Plugins Framework conflict with WP e-Commerce tax rates.
+
+= 1.1.9.4 - 2014/02/12 =
+* Tweak - Added remove_all_filters('mce_external_plugins'); before call to wp_editor to remove extension scripts from other plugins.
+* Tweak - All switch text to show as Uppercase.
+* Tweak - Updated Framework help text font for consistency.
+* Tweak - Full WP_DEBUG ran, all uncaught exceptions, errors, warnings, notices and php strict standard notices fixed.
+* Tweak - Tested 100% compatible with WordPress version 3.8.1
+* Tweak - Tested 100% compatible with WP e-Commerce version 3.8.13.3
+* Fix - Conflict with wpMandrill plugin. Rewrote Gallery preview URL security require_once( ABSPATH . 'wp-includes/pluggable.php' ); with sanitiser that does not call wp_mail.
+
+= 1.1.9.3 - 2013/12/18 =
+* Feature - a3rev Plugin Framework admin interface upgraded to 100% Compatibility with WordPress v3.8.0 with backward compatibility.
+* Feature - a3rev framework 100% mobile and tablet responsive, portrait and landscape viewing.
+* Tweak - Upgraded dashboard switch and slider to Vector based display that shows when WordPress version 3.8.0 is activated.
+* Tweak - Upgraded all plugin .jpg icons and images to Vector based display for full compatibility with new WordPress version.
+* Tweak - Tested 100% compatible with WP 3.8.0
+* Fix - Update make_compatibility function with  isset( $args->slug ) and isset( $args['body']['request'] ) so that our plugin can work together with other developers plugin (eg Backupbuddy) that adds filter on the WordPress plugins_api (bad thing to do)
+* Fix - Added esc_js() Escapes image description strings for echoing in JS, fixed the problem can’t show variation gallery when image description has special characters.
+
+= 1.1.9.2 - 2013/12/12 =
+* Feature - Major upgrade to Dynamic Gallery responsive display in mobile and tablet screens.
+* Tweak - Newly created Gallery JavaScript ensures that the tall of the gallery always resizes in proportion to the gallery wide in all Browsers including mobile and tablet (just like the images do).
+* Tweak - Removed fixed height setting that shows on admin when Gallery Dimension - Responsive is selected.
+* Tweak - Greatly enhanced the display of  'Portrait' images in all browser
+* Fix - Upgraded array_textareas type for Padding, Margin settings on the a3rev plugin framework
+
+= 1.1.9.1 - 2013/11/23 =
+* Feature - Add script to apply option of Fade transition effect to Variations Image Gallery on first load.
+* Tweak - Added Variations Galleries setting to Gallery Style tab settings.
+* Tweak - Added Load Effect timing slider setting when select Fade Transition.
+* Credit - Thanks to Joel Kriteman for suggesting the feature.
+
+= 1.1.9 - 2013/11/22 =
+* Feature - Upgraded the plugin to the newly developed a3rev admin Framework with app style interface.
+* Feature - New admin UI features check boxes replaced by switches, some dropdowns replaced by sliders.
+* Feature - Replaced colour picker with new WordPress 3.6.0 colour picker.
+* Feature - Added choice of 350 Google fonts to the existing 17 websafe fonts in all new single row font editor.
+* Feature - New on page instant previews for Fonts editor.
+* Feature - Added intuitive triggers for admin panel settings. When selected corresponding feature settings appear.
+* Tweak - Moved admin from WooCommerce settings tab onto the WooCommerce Nav bar, menu item Dynamic Gallery.
+* Tweak - Dynamic Gallery menu broken up into tabs - Setting, Gallery Style, Image Thumbnails.
+* Fix - $args->slug depreciated in WordPress 3.7.1, replace with $request = unserialize( $args['body']['request'] ); $request->slug
+
+= 1.1.8 - 2013/09/14 =
+* Fix - Use browser protocol http or https on page load fix in v1.1.7 caused sites that use Minify plugins to crash on update. Updated style url and script url to fix Minify conflict.
+* Credit - Thanks to Roy Vella (USA) for reporting the issue and the wp-admin and ftp access to his site to find and fix the bug.
+
+= 1.1.7 - 2013/09/07 =
+* Tweak - Added 'View Docs' link from the top of each admin panel to that menus section on the plugins docs.
+* Fix - Gallery images not showing in Chrome with SSL on product pages. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
+* Fix - Plugins admin script and style not loading in Firefox with SSL on admin. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
+
+= 1.1.6 - 2013/08/22 =
+* Fix - Gallery images can't show on some bespoke themes that have #aside img { visibility: hidden; added  visibility: visible !important; to over ride the themes code and gallery images can show.
+
+= 1.1.5 - 2013/08/05 =
+* Tweak - Plugin in code tested fully compatible with WordPress v3.6.0
+* Fix - Update Gallery script to work with the new WordPress jQuery v1.10.2. Changed .live to .on
+* Fix - Media Library images not showing in the Dynamic Gallery image manager pop-up on new wordpress 3.6
+* Fix - Bug - Variations and options showing in the Media Library image editor.
+* Fix - Replaced old Lightbox pop-up script with new Colorbox script.
+* Fix - Replacing Lightbox script with Colorbox fixes issue of the Lightbox script not opening the current image on Zoom. Lightbox always opened pop-up at first image in the Gallery.
+* Fix - Added Product Gallery Class attribute box-sizing:content-box for compatibility with new WordPress Twenty Thirteen default theme.
+
+= 1.1.4 - 2013/07/04 =
+* Feature - Added House Keeping function to settings. Clean up on Deletion. Option - Choose if you ever delete this plugin it will completely remove all code and tables it has created, (not product images) leaving no trace it was ever here. Added to Global Settings sub tab.
+* Feature - Complete UI overhaul and renovation of the plugins admin dashboard.
+* Tweak - Admin dashboard content broken up into sub nav tabs for ease of feature management. Gallery | Global Settings | Caption text | Nav Bar | Lazy-load scroll | Image Thumbnails
+* Tweak - Added Chosen script for beautiful dropdowns and options feature selection.
+* Tweak - New! - Global Settings tab. Gallery On / Off. Turn Dynamic Gallery on and off from the dashboard. Does not apply to single products that have custom activation settings.
+* Tweak - New! - Global Settings tab. 'Reset Gallery Activation', Reset all product page Gallery Activation settings to the default setting on the admin panel (over-rides custom product page activation settings).
+* Tweak - New! - Global Settings tab - Image Variations feature On / Off. Does not apply to product pages that have a custom Variation Images activation setting.
+* Tweak - New! - Global Settings tab - 'Reset Variations feature' Reset all product page Variations Activation settings to the default setting on the admin panel (over-rides custom product page variations settings).
+* Tweak - Replaced all global option keys with plugin registered prefix wpsc_dgallery to prevent other plugins conflicting with input options.
+* Tweak - Comprehensive line by line review and tidy up of the plugins source code.
+* Tweak - Ran full WP_DEBUG All Uncaught exceptions errors and warnings fixed.
+* Tweak - Added PHP Public Static to functions in Class. Done so that PHP Public Static warnings don't show in DE_BUG mode.
+* Tweak - Updated the plugins support links to the new a3rev support forum.
+* Fix - Not divisible by zero error message that showed when 0 value entered or for thumbnail wide and tall. Updated feature help text.
+
+= 1.1.3 - 2013/04/26 =
+* Feature - Reduction in memory used when variation images are loaded in the gallery on front end. We have made several tweaks to the output buffering function to achieve this. Particularly useful for those with servers running low on or operating on low memory resources.
+* Tweak - Added when install and activate plugin link redirects to License Key validation page instead of the wp-plugins dashboard.
+* Tweak - Updated admin error message that displays when plugin cannot connect to a3API on the Amazon cloud upon activation of the license.
+
+= 1.1.2 - 2013/04/22 =
+* Tweak - Updated all plugin code to be 100% compatible with the new WP e-Commerce version 3.8.10. The plugin is backward compatible with older version to 3.8.5
+
+= 1.1.1 - 2013/04/04 =
+* Tweak - Full Gallery Optimization in Windows XP, IE 7, IE8, Windows 7, IE8 and IE9 and Windows 8, IE10 and IE10 Desktop.
+* Tweak - Full Gallery test and optimization for  all 3 Windows operating systems - for these legacy browsers - Firefox, Safari, Chrome and Opera.
+* Tweak - Fully Gallery test and optimization for Apple OS X operating systems. Snow leopard, Lion and Mountain Lion using these legacy Browsers - Firefox, Safari, Chrome and Opera
+* Tweak - Full Gallery test and optimization for Apple IOS Mobile Safari in iPhones and all iPads.
+* Tweak - Fully Gallery test and optimization for Android Browser on all models of these manufacturers tablets that use the Android operating system - Amazon Kindle Fire, Google Nexus 7, Samsung Galaxy Note, Samsung Galaxy Tab 2
+* Tweak - Fully Gallery test and optimization for Android Browser on all models of these manufacturers phone that use the Android operating system (to many to list)  mobile phones that support - Samsung Galaxy, Motorola, HTC, Sony and LG
+* Tweak - Full Gallery test and optimization for Opera Mobile - Samsung Galaxy Tablet and Mobiles HTC Wildfire. Nokia 5800, Samsung Galaxy S II, Motorola Droid X and Motorola Atrix 4G
+* Fix - Long standing issue with Gallery main image not showing in bespoke themes in Windows 7 and Widows 8 with IE browsers 8.0, 9.0, 10.0 and 10.0 Desktop. Many thanks to Nemanja from the Art Binaire Team for providing the solution.
+* Fix - Conflict with Chrome browser add on AdBlocker. Chrome extension Adblocker was hiding the gallery class name ad-images which was causing the main gallery images not to show. Edited style so now gallery shows with that add-on activated.
+* Fix - Bug for users who have https: (SSL) on their sites wp-admin but have http on sites front end. This was causing a -1 to show in the Gallery Container instead of the current image because wp-admin with SSL applied only allows https:, but the url of admin-ajax.php is http: and it is denied hence returning the ajax -1 error. Fixed by writing a filter to recognize when https is configured on wp-admin  and parsing correctly. If you do not have this configuration nothing changes for you, if you do have https on your wp-admin (or install it in the future) and http on the front end then Dynamic Gallery will automatically detect that and works as it should.
+
+= 1.1.0.1 - 2013/02/13 =
+* Fix - Added a new script to the product variations gallery to fix a compatibility issue with Gold Cart plugin javascript which was stopping the variation images feature from working.
+* Fix - The Flat Rate Shipping work for single product when the gallery is activated.
+
+= 1.1.0 - 2013/01/24 =
+* Feature - Add the option to auto not show thumbnail when only 1 image is loaded to the gallery. To activate this feature go to Settings > Store > Dynamic Gallery and scroll down to Thumbnail settings.
+* Tweak - After adding the option to deactivate image transition when only 1 image is in the gallery in yesterdays update we have enhanced it by not showing 'Start Slideshow' in the Nav bar when a single image is showing in the Gallery.
+
+= 1.0.9 - 2013/01/23 =
+* Feature - Massive 2 times improvement in gallery image load times. Reworked the way that the Gallery image thumbnails are loaded with a resulting doubling of loading speed.
+* Feature - Massive 3 times improvement in load time of variation images in the gallery. All Gallery product Variation images are now pre-loaded in the background after page, and main gallery images are loaded. Variation images now show silky fast when variation is selected because they are pre-loaded to the gallery. - nice!
+* Feature - Add option to deactivate image zoom (pop up) from the admin panel. Store > Settings > Dynamic Gallery - Gallery pop-up - Choose from dropdown > fancybox, Lightbox or Deactivate. Deactivate removes the zoom function from the gallery.
+* Feature - Added option to deactivate image transition when only 1 image is in the gallery. Select this option from the admin panel and the gallery auto detects when there is only 1 image in the main gallery or for a variation and it does not do transition.
+* Tweak - Tested gallery on default WordPress Twenty Twelve  theme for 100% compatibility in Fire Fox, Google Chrome, Safari, IE8  , IE9, ios5, ios6 and Android.
+* Tweak - Updated plugins support link url
+
+= 1.0.8 - 2012/12/31 =
+* Tweak - Updated plugin API to allow Pro Version License holders to manage their Licenses from the all new "My Account" dashboard on a3rev. Includes the option to see which domains each plugin is installed and activated on and the ability to deactivate the plugin on any domain from the 'My Account' > Manage Licenses dashboard.
+
+= 1.0.7 - 2012/11/29 =
+* Tweak - Change Pro Version plugin API call from cURL to now use WordPress auto update wp_remote_request function. This is to fix Pro License user who do not have cURL activated on their host not being able to install and activate the plugin.
+* Tweak - Built new Amazon EC2 plugin API to increase connection and download speed as well as reliability and uptime - plugin from this version calls to the new API.
+* Fix - Change Pro Version plugin API call so that it only calls from the WP-Plugins page and not from every admin page.
+* Fix - Changed Pro Version plugin API call so that if it calls once to the API and it does not connect it auto aborts instead of keeping on trying to call.
+
+= 1.0.6 - 2012/11/23 =
+* Feature - Now supports WPMU - Pro Version Single License now works on any domain or sub domain that the Plugin is installed on with the WPMU environment. Note it only works on 1. WPMU license option coming soon.
+* Tweak - Added 'Apply to All' option on Gallery Image manager pop-up - this feature allows user to Apply all variations in a set to the selected image with one click - Thanks to Shawn for the feedback and the idea.
+* Tweak - Dynamic Gallery now only recognizes image formats .jpg, .jpeg, .gif, .png. It won't recognize anyother file and won't show in gallery, variations or on Image gallery manager meta box. Mean that files like PDF's can be uploaded and the gallery does not show them or create variations for them in the pop up image manager.
+* Fix - Conflict with WordPress Domain Mapping plugin
+* Credit - Thanks to Johannes for access to his WPMU install to find and fix this issue.
+
+= 1.0.5 - 2012/11/01 =
+* Feature - Added Show multiple variation images in gallery.  As users selects options from the drop down menu that options product image auto shows in the Dynamic Gallery complete with caption text.
+* Feature - Upload Variation images to the Gallery - Gallery image manager shows the WP e-Commerce Product Variations. Each image in the gallery can be assigned to that products Variations.
+* Feature - Can exclude variation images from the gallery and they only show when option is selected on the product page.
+* Feature - Variation images show singularly or in option sets with Gallery transition effects, caption text, Zoom feature and thumbnails.
+* Feature - Add Caption text to any Product Variation image - Caption text shows when the Variation is selected in the options - great feature to give people more information about the variation.
+* Feature - Activate Product Variation images globally from the Admin Panel - but turn it off on any single product page.
+* Tweak -  Added Thumbnail help text warning not to set width and height to '0' empty as it causes a <division by 0> error message to show instead to the Gallery.
+* Tweak - Tested Gallery compatibility with WP e-Commerce new release Version 3.8.9 and made a few tweaks.
+
+= 1.0.4 - 2012/10/28 =
+* Feature - Added option to deactivate the gallery from single product pages. When deactivated the product page defaults to the WP e-Commerce single product page image display.
+* Tweak - Upgraded Gallery js to support responsive themes. Gallery and image zoom fully responsive - shows beautifully in even the smallest crappy Android. Activate responsive by setting the Gallery Width to 100%. Choose px for wide and the gallery works for fixed px themes.
+* Tweak - Added display:inline-block !important; into css file for image class
+* Tweak - Update dashboard to show new Pro version features - responsive setting.
+* Tweak - Added Pro Version meta check box feature for deactivate gallery on product page gallery manager.
+* Tweak - Updated WordPress plugin description.
+* Fix - Single image click zoom function. The current image now opens when Zoom or the image is clicked.
+* Fix - Stopped Lazy load scrolling on Gallery initial load for auto start and when Auto Start not activated on Pro Version. Now the Lazy load scroll only starts when transition to second image in the Gallery starts.
+* Fix - Lazy Load scroll duration now sync with and set by the transition effect speed setting.
+* Fix - Caption text pop-up now sync with and set by the Time between transitions settings.
+* Fix - Make center for image in gallery frame
+
+= 1.0.3 - 2012/09/10 =
+* Fix - Gold Cart Plugin conflict that prevented the Gallery from showing on single products pages when Dynamic gallery plugin is installed.
+* Fix - Gold Cart plugin compatability. When WP e-Commerce Dynamic Gallery is installed first and Gold Cart Plugin is installed or activated after it was causing the fatal error 'Cannot redeclare gold_shpcrt_display_gallery()' .
+
+= 1.0.2 - 2012/09/05 =
+* Feature - Add fancybox script to plugin so that if the theme does not support fancybox or it is disabled in the admin panel then the gallery image zoom can still work.
+* Tweak - Enqueue plugin script into footer use wp_enqueue_script so that now it is only loaded when needed rather than site-wide and has zero impact on page load speeds.
+* Tweak - Enqueue plugin style into header use wp_enqueue_style so that now it is only loaded when needed rather than site-wide and has zero impact on page load speeds.
+* Tweak - Add plugin Documentation and Support links to the wp plugins dashboard description.
+* Tweak - Plugins admin dashboard message and added links to other A3 WordPress WP e-Commerce plugins
+* Tweak - Updated readme.
+* Tweak - Add plugin description to wp plugins dashboard.
+* Tweak - Change localization file path from actual to base path
+* Fix - Gallery preview not working on sites that do not have wp_enqueue_script( 'thickbox' ) by default. Added call to wp_enqueue_script( 'thickbox' ) if it does not exist so that preview window can open.
+* Fix - Updated depreciated php function ereg() with stristr() so that Pro version auto plugin auto upgrade feature work without error for WordPress 3.4.0 and later
+
+= 1.0.1 - 2012/07/23 =
+* Fix - Thumbnails show after editing thumbnail settings in the Store > Dynamic Gallery tab.
+
+= 1.0 - 2012/07/18 =
+* Initial release.
